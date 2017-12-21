@@ -47,14 +47,3 @@ $ curl localhost:8080/function/identicon --data "openfaas" > sample/openfaas.png
 ```
 
 ![Sample image generated for openfaas](sample/openfaas.png)
-
----
-
-* **Open Question**
-  * Should we checkin vendor folder?
-
-* **Note**
-  * `faas-cli build ...` fails while testing for `gofmt`. Temporary fix is editing the template's `Dockerfile` line 13 to
-```
-RUN test -z "$(gofmt -l $(find . -type f -name '*.go' -not -path "./function/vendor/*"))" || { echo "Run \"gofmt -s -w\" on your Golang code"; exit 1; }
-```
